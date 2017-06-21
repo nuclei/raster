@@ -2,15 +2,12 @@
   // Matrices
   $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
   $numbers:  0   1   2   3   4   5   6   7   8   9;
-
   // Result
   $result: 0;
-
   // Looping through all characters
   @for $i from 1 through str-length($string) {
     $character: str-slice($string, $i, $i);
     $index: index($strings, $character);
-
     @if not $index {
       @warn "Unknown character `#{$character}`.";
       @return false;
@@ -19,9 +16,17 @@
     $number: nth($numbers, $index);
     $result: $result * 10 + $number;
   }
-
   @return $result;
 }
+/* -------------------------
+ * Sizes
+ */
+$sizes: (
+  xs: 'max-width',
+  sm: 'max-width',
+  lg: 'min-width',
+  xl: 'min-width'
+)
 :root{
   --columns: #{$columns};
   --gutter: #{$gutter};
@@ -31,40 +36,59 @@
     --column-#{$i}: calc( ( 100% / var(--columns) ) * #{$i} );
   }
 }
-.raster, .#{$raster}{
+.raster, .#{$raster}, .grid, .row{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
-@media (max-width: $xs){
-  @for $i from 1 through number($columns) {
-    .column-xs-#{$i}, .#{$prefix}xs-#{$i}{
-      flex-basis: var(--column-#{$i});
-    }
-  }
-}
-@media (max-width: $sm){
-  @for $i from 1 through number($columns) {
-    .column-sm-#{$i}, .#{$prefix}sm-#{$i}{
-      flex-basis: var(--column-#{$i});
-    }
-  }
-}
+/* -------------------------
+ * Medium
+ */
 @for $i from 1 through number($columns) {
   .column-#{$i}, .column-md-#{$i}, .#{$prefix}md-#{$i}, .#{$prefix}#{$i}{
     flex-basis: var(--column-#{$i});
   }
-}
-@media (min-width: $lg){
-  @for $i from 1 through number($columns) {
-    .column-lg-#{$i}, .#{$prefix}lg-#{$i}{
-      flex-basis: var(--column-#{$i});
-    }
+  .offset-#{$i}, .offset-md-#{$i}, .#{$prefix}offset-md-#{$i}, .#{$prefix}offset-#{$i}{
+    margin-left: var(--column-#{$i});
   }
 }
-@media (min-width: $xl){
-  @for $i from 1 through number($columns) {
-    .column-xl-#{$i}, .#{$prefix}xl-#{$i}{
-      flex-basis: var(--column-#{$i});
+.column-auto, .column-md-auto, .#{$prefix}md-auto, .#{$prefix}auto{
+  flex: 1;
+  flex-basis: 0;
+}
+.align-left, .align-md-left, .#{$raster}--md-left, .#{$raster}--left{ justify-content: flex-start; }
+.align-center, .align-md-center, .#{$raster}--md-center, .#{$raster}--center{ justify-content: center; }
+.align-right, .align-md-right, .#{$raster}--md-right, .#{$raster}--right{ justify-content: flex-end; }
+.align-top, .align-md-top, .#{$raster}--md-top, .#{$raster}--top{ align-items: flex-start; }
+.align-middle, .align-md-middle, .#{$raster}--md-middle, .#{$raster}--middle{ align-items: center; }
+.align-bottom, .align-md-bottom, .#{$raster}--md-bottom, .#{$raster}--bottom{ align-items: flex-end; }
+.order-first, .order-md-first, .#{$prefix}md-first, .#{$prefix}first{ order: -1; }
+.order-last, .order-md-last, .#{$prefix}md-last, .#{$prefix}last{ order: 100; }
+
+@each $size, $media in $sizes {
+  /* -------------------------
+ * Size: #{$size}
+ */
+  @media (#{$media}: map-get($breakpoints, $size)){
+    @for $i from 1 through number($columns) {
+      .column-#{$size}-#{$i}, .#{$prefix}#{$size}-#{$i}{
+        flex-basis: var(--column-#{$i});
+      }
+      .offset-#{$size}-#{$i}, .#{$prefix}offset-#{$size}-#{$i}{
+        margin-left: var(--column-#{$i});
+      }
     }
+    .column-#{$size}-auto, .#{$prefix}#{$size}-auto{
+      flex: 1;
+      flex-basis: 0;
+    }
+    .align-#{$size}-left, .#{$raster}--#{$size}-left{ justify-content: flex-start; }
+    .align-#{$size}-center, .#{$raster}--#{$size}-center{ justify-content: center; }
+    .align-#{$size}-right, .#{$raster}--#{$size}-right{ justify-content: flex-end; }
+    .align-#{$size}-top, .#{$raster}--#{$size}-top{ align-items: flex-start; }
+    .align-#{$size}-middle, .#{$raster}--#{$size}-middle{ align-items: center; }
+    .align-#{$size}-bottom, .#{$raster}--#{$size}-bottom{ align-items: flex-end; }
+    .order-#{$size}-first, .#{$prefix}#{$size}-first { order: -1; }
+    .order-#{$size}-last, .#{$prefix}#{$size}-last{ order: 100; }
   }
 }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Raster</title>
+    <link rel="stylesheet" href="raster.css">
+    <style media="screen">
+      :root{
+        --columns: 16;
+        --gutter: 10px;
+      }
+      [class^=column]{
+        display: flex;
+        padding: 2px;
+        box-sizing: border-box;
+        min-height: 30px;
+        box-shadow: inset 0 0 0 1px blue;
+      }
+      @media (max-width: 600px) {
+        :root{
+          --columns: 12;
+        }
+        [class^=column]{
+          box-shadow: inset 0 0 0 1px orange;
+        }
+      }
+      .one-col-element{
+        width: var(--column-1);
+        background: blue;
+      }
+      .raster{
+        margin-top: 20px;
+        background: rgb(245,245,245);
+        padding: 10px;
+      }
+      .raster--tall{
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="raster">
+      <div class="column-md-16 column-sm-12"></div>
+      <div class="column-md-15 column-sm-1"></div><div class="column-md-1 column-sm-11"></div>
+      <div class="column-md-14 column-sm-2"></div><div class="column-md-2 column-sm-10"></div>
+      <div class="column-md-13 column-sm-3"></div><div class="column-md-3 column-sm-9"></div>
+      <div class="column-md-12 column-sm-4"></div><div class="column-md-4 column-sm-8"></div>
+      <div class="column-md-11 column-sm-5"></div><div class="column-md-5 column-sm-7"></div>
+      <div class="column-md-10 column-sm-6"></div><div class="column-md-6 column-sm-6"></div>
+      <div class="column-md-9 column-sm-3"></div><div class="column-md-7 column-sm-2"></div>
+      <div class="column-md-8 column-sm-4"></div><div class="column-md-8 column-sm-3"></div>
+    </div>
+
+    <div class="raster">
+      <div class="column-md-16 raster">
+        <div class="column-md-1"></div>
+        <div class="column-md-15 raster">
+          <div class="column-md-8"></div><div class="column-md-8"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="raster">
+      <div class="column-md-15 offset-1"></div>
+      <div class="column-md-14 offset-2"></div>
+      <div class="column-md-13 offset-3"></div>
+      <div class="column-md-12 offset-4"></div>
+      <div class="column-md-11 offset-5"></div>
+      <div class="column-md-10 offset-6"></div>
+      <div class="column-md-9 offset-7"></div>
+      <div class="column-md-8 offset-8"></div>
+      <div class="column-md-7 offset-9"></div>
+      <div class="column-md-6 offset-10"></div>
+      <div class="column-md-5 offset-11"></div>
+      <div class="column-md-4 offset-12"></div>
+      <div class="column-md-3 offset-13"></div>
+      <div class="column-md-2 offset-14"></div>
+      <div class="column-md-1 offset-15"></div>
+    </div>
+    <h2>Alignment</h2>
+    <h3>Centered</h3>
+    <p>.align-center-md .align-middle-md</p>
+    <div class="raster align-md-center align-md-middle raster--tall">
+      <div class="column-md-4"></div>
+      <div class="column-md-4"></div>
+      <div class="column-md-4"></div>
+    </div>
+    <h3>Top left</h3>
+    <p>.align-left-md</p>
+    <div class="raster align-md-left align-md-top raster--tall">
+      <div class="column-md-4"></div>
+      <div class="column-md-4"></div>
+      <div class="column-md-4"></div>
+    </div>
+    <h3>Bottom right</h3>
+    <p>.align-left-md</p>
+    <div class="raster align-md-right align-md-bottom raster--tall">
+      <div class="column-md-4"></div>
+      <div class="column-md-4"></div>
+      <div class="column-md-4"></div>
+    </div>
+    <h3>Order</h3>
+    <p>.order-first / .order-last</p>
+    <div class="raster align-md-center raster--tall">
+      <div class="column-md-4 order-last">1 move to last position</div>
+      <div class="column-md-4" style="order:10">2</div>
+      <div class="column-md-4 order-first">3 move to first position</div>
+    </div>
+  </body>
+</html>

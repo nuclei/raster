@@ -15,9 +15,20 @@ const options = commandLineArgs([
 ])
 
 let variables = ''
+let sizes = ''
 Object.keys(options).forEach(key => {
-  variables += '$'+key+': "' + options[key] + '";\n'
+  if(['xs','sm','lg','xl'].indexOf(key) === -1){
+    variables += '$'+key+': "' + options[key] + '";\n'
+  } else {
+    sizes += key+': "' + options[key] + '", '
+  }
 });
+sizes = '$breakpoints: (' + sizes.substring(0,sizes.length-2) + ');'
+variables += sizes
+console.log(variables);
+// Object.keys(options).forEach(key => {
+//   variables += '$breakpoints: '+key+': "' + options[key] + '";\n'
+// });
 
 let file = './src/raster.scss';
 

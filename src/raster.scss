@@ -1,0 +1,70 @@
+@function number($string) {
+  // Matrices
+  $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+  $numbers:  0   1   2   3   4   5   6   7   8   9;
+
+  // Result
+  $result: 0;
+
+  // Looping through all characters
+  @for $i from 1 through str-length($string) {
+    $character: str-slice($string, $i, $i);
+    $index: index($strings, $character);
+
+    @if not $index {
+      @warn "Unknown character `#{$character}`.";
+      @return false;
+    }
+
+    $number: nth($numbers, $index);
+    $result: $result * 10 + $number;
+  }
+
+  @return $result;
+}
+:root{
+  --columns: #{$columns};
+  --gutter: #{$gutter};
+  --outer-gutter: var(--gutter);
+  /* column variables */
+  @for $i from 1 through number($columns) {
+    --column-#{$i}: calc( ( 100% / var(--columns) ) * #{$i} );
+  }
+}
+.raster, .#{$raster}{
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: $xs){
+  @for $i from 1 through number($columns) {
+    .column-xs-#{$i}, .#{$prefix}xs-#{$i}{
+      flex-basis: var(--column-#{$i});
+    }
+  }
+}
+@media (max-width: $sm){
+  @for $i from 1 through number($columns) {
+    .column-sm-#{$i}, .#{$prefix}sm-#{$i}{
+      flex-basis: var(--column-#{$i});
+    }
+  }
+}
+@for $i from 1 through number($columns) {
+  .column-#{$i}, .column-md-#{$i}, .#{$prefix}md-#{$i}, .#{$prefix}#{$i}{
+    flex-basis: var(--column-#{$i});
+  }
+}
+@media (min-width: $lg){
+  @for $i from 1 through number($columns) {
+    .column-lg-#{$i}, .#{$prefix}lg-#{$i}{
+      flex-basis: var(--column-#{$i});
+    }
+  }
+}
+@media (min-width: $xl){
+  @for $i from 1 through number($columns) {
+    .column-xl-#{$i}, .#{$prefix}xl-#{$i}{
+      flex-basis: var(--column-#{$i});
+    }
+  }
+}

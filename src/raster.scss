@@ -52,6 +52,9 @@ $sizes: (
     margin-left: var(--column-#{$i});
   }
 }
+.offset-0, .offset-md-0, .#{$prefix}offset-md-0, .#{$prefix}offset-0{
+  margin-left: 0;
+}
 .column-auto, .column-md-auto, .#{$prefix}md-auto, .#{$prefix}auto{
   flex: 1;
   flex-basis: 0;
@@ -81,6 +84,9 @@ $sizes: (
     .column-#{$size}-auto, .#{$prefix}#{$size}-auto{
       flex: 1;
       flex-basis: 0;
+    }
+    .offset-#{$size}-0, .#{$prefix}offset-#{$size}-0{
+      margin-left: 0;
     }
     .align-#{$size}-left, .#{$raster}--#{$size}-left{ justify-content: flex-start; }
     .align-#{$size}-center, .#{$raster}--#{$size}-center{ justify-content: center; }

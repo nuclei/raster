@@ -161,6 +161,10 @@
   margin-left: var(--column-16);
 }
 
+.offset-0, .offset-md-0, .o-column--offset-md-0, .o-column--offset-0 {
+  margin-left: 0;
+}
+
 .column-auto, .column-md-auto, .o-column--md-auto, .o-column--auto {
   flex: 1;
   flex-basis: 0;
@@ -302,6 +306,9 @@
     flex: 1;
     flex-basis: 0;
   }
+  .offset-xs-0, .o-column--offset-xs-0 {
+    margin-left: 0;
+  }
   .align-xs-left, .o-raster--xs-left {
     justify-content: flex-start;
   }
@@ -431,6 +438,9 @@
   .column-sm-auto, .o-column--sm-auto {
     flex: 1;
     flex-basis: 0;
+  }
+  .offset-sm-0, .o-column--offset-sm-0 {
+    margin-left: 0;
   }
   .align-sm-left, .o-raster--sm-left {
     justify-content: flex-start;
@@ -562,6 +572,9 @@
     flex: 1;
     flex-basis: 0;
   }
+  .offset-lg-0, .o-column--offset-lg-0 {
+    margin-left: 0;
+  }
   .align-lg-left, .o-raster--lg-left {
     justify-content: flex-start;
   }
@@ -691,6 +704,9 @@
   .column-xl-auto, .o-column--xl-auto {
     flex: 1;
     flex-basis: 0;
+  }
+  .offset-xl-0, .o-column--offset-xl-0 {
+    margin-left: 0;
   }
   .align-xl-left, .o-raster--xl-left {
     justify-content: flex-start;

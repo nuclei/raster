@@ -68,6 +68,8 @@ Like column classes, offset classes are used on the columns and are available fo
 .offset-xl-1, .o-column--offset-xl-1{ … }
 ```
 
+There is also an offset class for all sizes to reset the offset to `0`, e.g. `.offset-sm-0, .o-column--offset-sm-0`.
+
 #### Rows
 By default you do not need to worry about rows. If you fill up an entire row, the items will simply wrap to the next line.
 

@@ -17,6 +17,14 @@
     "flexbox",
     "css"
   ],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuclei/raster.git"
+  },
+    "bugs": {
+    "url": "https://github.com/nuclei/raster/issues"
+  },
+  "homepage": "https://github.com/nuclei/raster#readme",
+  "author": "Lukas Oppermann",
+  "license": "MIT"
 }

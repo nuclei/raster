@@ -7,7 +7,7 @@ const options = commandLineArgs([
   { name: 'columns', type: Number, defaultValue: 16 },
   { name: 'gutter', type: String, defaultValue: '10px' },
   { name: 'xs', type: String, defaultValue: '400px' },
-  { name: 'sm', type: String, defaultValue: '600px' },
+  { name: 'sm', type: String, defaultValue: '800px' },
   { name: 'lg', type: String, defaultValue: '1200px' },
   { name: 'xl', type: String, defaultValue: '1500px' },
   { name: 'prefix', type: String, defaultValue: 'o-column--' },

@@ -24,7 +24,7 @@
   --column-16: calc( ( 100% / var(--columns) ) * 16);
 }
 
-.raster, .o-raster {
+.raster, .o-raster, .grid, .row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -331,7 +331,7 @@
 /* -------------------------
  * Size: sm
  */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .column-sm-1, .o-column--sm-1 {
     flex-basis: var(--column-1);
   }

@@ -142,5 +142,5 @@ Now you can run the npm build script:
 
 ```bash
 # note the -- after build, needed to pass the arguments to the underlying node script
-npm run build -- --xs=400px --sm=600px --lg=1200px --xl=1500px --prefix=o-column --raster=o-raster --gutter=10px --columns=16
+npm run build -- --xs=400px --sm=800px --lg=1200px --xl=1500px --prefix=o-column --raster=o-raster --gutter=10px --columns=16
 ```

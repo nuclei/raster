@@ -1,6 +1,6 @@
 {
   "name": "raster.css",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A modern flexbox grid based with css variables (custom properties)",
   "main": "dist/raster.css",
   "devDependencies": {
@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/nuclei/raster.git"
   },
-    "bugs": {
+  "bugs": {
     "url": "https://github.com/nuclei/raster/issues"
   },
   "homepage": "https://github.com/nuclei/raster#readme",
